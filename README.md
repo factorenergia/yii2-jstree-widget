@@ -1,10 +1,10 @@
 yii2-jstree-widget
 ==================
-[![Code Climate](https://codeclimate.com/github/factorenergia/yii2-jstree-widget/badges/gpa.svg)](https://codeclimate.com/github/factorenergia/yii2-jstree-widget)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/551833bd-1951-493d-9a8f-9f676cf58506/mini.png)](https://insight.sensiolabs.com/projects/551833bd-1951-493d-9a8f-9f676cf58506)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/badges/build.png?b=master)](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/build-status/master)
 
+[![Latest Stable Version](https://poser.pugx.org//factorenergia/yii2-jstree-widget/v/stable)](https://packagist.org/packages//factorenergia/yii2-jstree-widget)
+[![Total Downloads](https://poser.pugx.org//factorenergia/yii2-jstree-widget/downloads)](https://packagist.org/packages//factorenergia/yii2-jstree-widget)
+[![Latest Unstable Version](https://poser.pugx.org//factorenergia/yii2-jstree-widget/v/unstable)](https://packagist.org/packages//factorenergia/yii2-jstree-widget)
+[![License](https://poser.pugx.org//factorenergia/yii2-jstree-widget/license)](https://packagist.org/packages//factorenergia/yii2-jstree-widget)
 
 jsTree tree widget for yii2.
 
