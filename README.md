@@ -1,10 +1,10 @@
 yii2-jstree-widget
 ==================
 
-[![Latest Stable Version](https://poser.pugx.org//factorenergia/yii2-jstree-widget/v/stable)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
-[![Total Downloads](https://poser.pugx.org//factorenergia/yii2-jstree-widget/downloads)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
-[![Latest Unstable Version](https://poser.pugx.org//factorenergia/yii2-jstree-widget/v/unstable)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
-[![License](https://poser.pugx.org//factorenergia/yii2-jstree-widget/license)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
+[![Latest Stable Version](https://poser.pugx.org/factorenergia/yii2-jstree-widget/v/stable)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
+[![Total Downloads](https://poser.pugx.org/factorenergia/yii2-jstree-widget/downloads)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
+[![Latest Unstable Version](https://poser.pugx.org/factorenergia/yii2-jstree-widget/v/unstable)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
+[![License](https://poser.pugx.org/factorenergia/yii2-jstree-widget/license)](https://packagist.org/packages/factorenergia/yii2-jstree-widget)
 
 jsTree tree widget for yii2.
 
