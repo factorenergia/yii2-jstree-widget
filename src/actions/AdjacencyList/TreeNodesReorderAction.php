@@ -1,8 +1,8 @@
 <?php
 
-namespace devgroup\JsTreeWidget\actions\AdjacencyList;
+namespace factorenergia\JsTreeWidget\actions\AdjacencyList;
 
-use DevGroup\TagDependencyHelper\NamingHelper;
+use factorenergia\TagDependencyHelper\NamingHelper;
 use Yii;
 use yii\base\Action;
 use yii\base\InvalidConfigException;

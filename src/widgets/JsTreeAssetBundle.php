@@ -1,6 +1,6 @@
 <?php
 
-namespace devgroup\JsTreeWidget\widgets;
+namespace factorenergia\JsTreeWidget\widgets;
 
 use Yii;
 use yii\web\AssetBundle;
@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
  * Asset bundle for jsTree widget
  * Uses bower as jstree source.
  *
- * @package devgroup\JsTreeWidget
+ * @package factorenergia\JsTreeWidget
  */
 class JsTreeAssetBundle extends AssetBundle
 {

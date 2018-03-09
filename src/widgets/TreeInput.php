@@ -1,8 +1,8 @@
 <?php
 
-namespace devgroup\JsTreeWidget\widgets;
+namespace factorenergia\JsTreeWidget\widgets;
 
-use DevGroup\Metronic\widgets\InputWidget;
+use factorenergia\Metronic\widgets\InputWidget;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;

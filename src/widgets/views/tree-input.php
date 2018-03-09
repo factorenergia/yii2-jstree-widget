@@ -1,7 +1,7 @@
 <?php
 /** @var yii\web\View $this  */
-use devgroup\JsTreeWidget\widgets\TreeInputAssetBundle;
-use devgroup\JsTreeWidget\widgets\TreeWidget;
+use factorenergia\JsTreeWidget\widgets\TreeInputAssetBundle;
+use factorenergia\JsTreeWidget\widgets\TreeWidget;
 use yii\helpers\Html;
 
 /**

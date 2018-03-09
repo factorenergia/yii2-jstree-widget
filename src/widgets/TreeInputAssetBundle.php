@@ -1,6 +1,6 @@
 <?php
 
-namespace devgroup\JsTreeWidget\widgets;
+namespace factorenergia\JsTreeWidget\widgets;
 
 use Yii;
 use yii\web\AssetBundle;

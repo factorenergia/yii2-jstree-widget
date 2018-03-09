@@ -1,6 +1,6 @@
 <?php
 
-namespace devgroup\JsTreeWidget\helpers;
+namespace factorenergia\JsTreeWidget\helpers;
 
 use Yii;
 use yii\helpers\Json;

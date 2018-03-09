@@ -1,14 +1,14 @@
 yii2-jstree-widget
 ==================
-[![Code Climate](https://codeclimate.com/github/DevGroup-ru/yii2-jstree-widget/badges/gpa.svg)](https://codeclimate.com/github/DevGroup-ru/yii2-jstree-widget)
+[![Code Climate](https://codeclimate.com/github/factorenergia/yii2-jstree-widget/badges/gpa.svg)](https://codeclimate.com/github/factorenergia/yii2-jstree-widget)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/551833bd-1951-493d-9a8f-9f676cf58506/mini.png)](https://insight.sensiolabs.com/projects/551833bd-1951-493d-9a8f-9f676cf58506)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-jstree-widget/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-jstree-widget/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-jstree-widget/badges/build.png?b=master)](https://scrutinizer-ci.com/g/DevGroup-ru/yii2-jstree-widget/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/badges/build.png?b=master)](https://scrutinizer-ci.com/g/factorenergia/yii2-jstree-widget/build-status/master)
 
 
 jsTree tree widget for yii2.
 
-Current state: **unstable**.
+Current state: **WIP**.
 
 Description
 -----------
@@ -20,7 +20,21 @@ For now following data structure types are supported:
 - [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list);
 - [nested set](https://en.wikipedia.org/wiki/Nested_set_model).
 
+## Installation
 
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+
+Either run
+
+```
+composer require --prefer-dist factorenergia/yii2-jstree-widget "*"
+```
+
+or add the following to the `require` section of your `composer.json`
+
+```json
+"factorenergia/yii2-jstree-widget" : "*"
+```
 Usage example
 -------------
 For example, we have model Menu that represents our structured data. And MenuController for management purposes.
@@ -30,9 +44,9 @@ Adjacency List
 In the MenuController:
 
 ``` php
-use devgroup\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;
-use devgroup\JsTreeWidget\actions\AdjacencyList\TreeNodesReorderAction;
-use devgroup\JsTreeWidget\actions\AdjacencyList\TreeNodeMoveAction;
+use factorenergia\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;
+use factorenergia\JsTreeWidget\actions\AdjacencyList\TreeNodesReorderAction;
+use factorenergia\JsTreeWidget\actions\AdjacencyList\TreeNodeMoveAction;
 ...
 public function actions()
     {
@@ -88,8 +102,8 @@ For using multi root mode you have to have `tree` (or other name you like) colum
 In the MenuController:
 
 ``` php
-use devgroup\JsTreeWidget\actions\nestedset\FullTreeDataAction;
-use devgroup\JsTreeWidget\actions\nestedset\NodeMoveAction;
+use factorenergia\JsTreeWidget\actions\nestedset\FullTreeDataAction;
+use factorenergia\JsTreeWidget\actions\nestedset\NodeMoveAction;
 ...
 public function actions()
     {

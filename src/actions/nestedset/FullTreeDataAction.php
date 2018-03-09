@@ -1,8 +1,8 @@
 <?php
 
-namespace devgroup\JsTreeWidget\actions\nestedset;
+namespace factorenergia\JsTreeWidget\actions\nestedset;
 
-use devgroup\JsTreeWidget\widgets\TreeWidget;
+use factorenergia\JsTreeWidget\widgets\TreeWidget;
 use yii\base\Action;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecord;
@@ -13,7 +13,7 @@ use yii\web\Response;
 /**
  * Class FullTreeDataAction
  *
- * @package devgroup\JsTreeWidget\actions\nestedset
+ * @package factorenergia\JsTreeWidget\actions\nestedset
  */
 class FullTreeDataAction extends Action
 {

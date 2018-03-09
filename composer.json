@@ -1,5 +1,5 @@
 {
-    "name": "devgroup/yii2-jstree-widget",
+    "name": "factorenergia/yii2-jstree-widget",
     "description": "jsTree widget for yii2",
     "type": "yii2-extension",
     "keywords": ["yii2","jstree","tree","widget","nested-sets"],
@@ -26,11 +26,11 @@
     "require": {
         "yiisoft/yii2": "~2.0.0",
         "bower-asset/jstree": "*",
-        "devgroup/yii2-tag-dependency-helper": "~1.5"
+        "factorenergia/yii2-tag-dependency-helper": "~1.5"
     },
     "autoload": {
         "psr-4": {
-            "devgroup\\JsTreeWidget\\": "src/"
+            "factorenergia\\JsTreeWidget\\": "src/"
         }
     }
 }

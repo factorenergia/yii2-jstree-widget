@@ -1,6 +1,6 @@
 <?php
 
-namespace devgroup\JsTreeWidget\widgets;
+namespace factorenergia\JsTreeWidget\widgets;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -169,7 +169,7 @@ class TreeWidget extends Widget
             $this->contextMenuOptions($functionName);
         }
         $options = Json::encode($options);
-        $this->getView()->registerAssetBundle('devgroup\JsTreeWidget\widgets\JsTreeAssetBundle');
+        $this->getView()->registerAssetBundle('factorenergia\JsTreeWidget\widgets\JsTreeAssetBundle');
 
         $doubleClick = '';
         if ($this->doubleClickAction !== false) {

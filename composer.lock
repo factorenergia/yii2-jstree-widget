@@ -256,16 +256,16 @@
             "time": "2016-06-20 21:09:53"
         },
         {
-            "name": "devgroup/yii2-tag-dependency-helper",
+            "name": "factorenergia/yii2-tag-dependency-helper",
             "version": "1.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/DevGroup-ru/yii2-tag-dependency-helper.git",
+                "url": "https://github.com/factorenergia/yii2-tag-dependency-helper.git",
                 "reference": "c52149f3a718f57e5335697734fb1151aa0bf3c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DevGroup-ru/yii2-tag-dependency-helper/zipball/c52149f3a718f57e5335697734fb1151aa0bf3c2",
+                "url": "https://api.github.com/repos/factorenergia/yii2-tag-dependency-helper/zipball/c52149f3a718f57e5335697734fb1151aa0bf3c2",
                 "reference": "c52149f3a718f57e5335697734fb1151aa0bf3c2",
                 "shasum": ""
             },
@@ -279,7 +279,7 @@
             "type": "yii2-extension",
             "autoload": {
                 "psr-4": {
-                    "DevGroup\\TagDependencyHelper\\": "src/"
+                    "factorenergia\\TagDependencyHelper\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
