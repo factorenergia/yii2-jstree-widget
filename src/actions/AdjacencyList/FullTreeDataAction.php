@@ -41,18 +41,35 @@ class FullTreeDataAction extends Action
 
     public $modelParentAttribute = 'parent_id';
 
+    public $modelIconAttribute = 'icon';
+
     public $varyByTypeAttribute = null;
+
+    public $modelTypeAttribute = null;
 
     public $queryParentAttribute = 'id';
 
     public $querySortOrder = 'sort_order';
 
     public $querySelectedAttribute = 'selected_id';
+
+    /**
+     * Additional related model
+     * @var array|\Closure
+     */
+    public $withRelations = [];
     /**
      * Additional conditions for retrieving tree(ie. don't display nodes marked as deleted)
      * @var array|\Closure
      */
     public $whereCondition = [];
+
+    /**
+     * Cache toggle flag
+     * @var string|\Closure
+     */
+    public $cacheEnabled = true;
+
 
     /**
      * Cache key prefix. Should be unique if you have multiple actions with different $whereCondition
@@ -67,6 +84,16 @@ class FullTreeDataAction extends Action
     public $cacheLifeTime = 86400;
 
     private $selectedNodes = [];
+
+    /**
+     * Icon set configuration
+     * @var int example: [
+     * 'default' => 'fa fa-file',
+     * 'dir' => 'fa fa-folder-o',
+     * 'pdf' => 'fa fa-file-pdf-o'
+     * ]
+     */
+    public $icons = null;
 
     public function init()
     {
@@ -92,11 +119,14 @@ class FullTreeDataAction extends Action
         $cacheKey = "AdjacencyFullTreeData:{$cacheKey}:{$class}:{$this->querySortOrder}";
 
         Yii::beginProfile('Get tree');
-        if (false === $result = Yii::$app->cache->get($cacheKey)) {
+        if (!$this->cacheEnabled || (false === $result = Yii::$app->cache->get($cacheKey))) {
             Yii::beginProfile('Build tree');
             $query = $class::find()
                 ->orderBy([$this->querySortOrder => SORT_ASC]);
 
+            if (!empty($this->withRelations)) {
+                $query->with($this->withRelations);
+            }
             if ($this->whereCondition instanceof \Closure) {
                 $query->where(call_user_func($this->whereCondition));
             } elseif (count($this->whereCondition) > 0) {
@@ -109,7 +139,9 @@ class FullTreeDataAction extends Action
 
             $result = [];
 
+
             foreach ($rows as $row) {
+
                 $parent = ArrayHelper::getValue($row, $this->modelParentAttribute, 0);
                 $item = [
                     'id' => ArrayHelper::getValue($row, $this->modelIdAttribute, 0),
@@ -120,25 +152,34 @@ class FullTreeDataAction extends Action
                         'data-parent_id' => $row[$this->modelParentAttribute]
                     ],
                 ];
+                if (null !== $this->modelTypeAttribute) {
+                    $item['a_attr']['data-type'] = $row[$this->modelTypeAttribute];
+
+                }
+
+                if (null !== $this->icons) {
+                    $item['icon'] = (!empty($row[$this->modelIconAttribute])) ? $this->icons[$row[$this->modelIconAttribute]] : $this->icons['default'];
+                }
 
                 if (null !== $this->varyByTypeAttribute) {
                     $item['type'] = $row[$this->varyByTypeAttribute];
                 }
 
+
                 $result[$row[$this->modelIdAttribute]] = $item;
             }
-
-            Yii::$app->cache->set(
-                $cacheKey,
-                $result,
-                86400,
-                new TagDependency([
-                    'tags' => [
-                        NamingHelper::getCommonTag($class),
-                    ],
-                ])
-            );
-
+            if ($this->cacheEnabled) {
+                Yii::$app->cache->set(
+                    $cacheKey,
+                    $result,
+                    86400,
+                    new TagDependency([
+                        'tags' => [
+                            NamingHelper::getCommonTag($class),
+                        ],
+                    ])
+                );
+            }
             Yii::endProfile('Build tree');
         }
 
