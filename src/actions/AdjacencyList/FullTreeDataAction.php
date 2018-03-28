@@ -125,7 +125,7 @@ class FullTreeDataAction extends Action
                 ->orderBy([$this->querySortOrder => SORT_ASC]);
 
             if (!empty($this->withRelations)) {
-                $query->with($this->withRelations);
+                $query->joinWith($this->withRelations);
             }
             if ($this->whereCondition instanceof \Closure) {
                 $query->where(call_user_func($this->whereCondition));
