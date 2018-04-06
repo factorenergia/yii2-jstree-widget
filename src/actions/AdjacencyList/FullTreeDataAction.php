@@ -70,6 +70,11 @@ class FullTreeDataAction extends Action
      */
     public $cacheEnabled = true;
 
+    /**
+     * Toogle recursive parents search to show only the parents of the selected files
+     * @var string|\Closure
+     */
+    public $recursiveParents = true;
 
     /**
      * Cache key prefix. Should be unique if you have multiple actions with different $whereCondition
@@ -138,7 +143,19 @@ class FullTreeDataAction extends Action
             }
 
             $result = [];
+            $parentsIds = [];
+            $parentRows = [];
 
+            if ($this->recursiveParents) {
+                foreach ($rows as $row) {
+                    $parent = ArrayHelper::getValue($row, $this->modelParentAttribute, 0);
+                    if (!empty($parent) && !in_array($parent, $parentsIds)) {
+                        $parentsIds[] = $parent;
+                        $parentRows = $this->checkParents($parent, $parentRows);
+                    }
+                }
+                $rows = array_merge($rows, $parentRows);
+            }
 
             foreach ($rows as $row) {
 
@@ -164,10 +181,9 @@ class FullTreeDataAction extends Action
                 if (null !== $this->varyByTypeAttribute) {
                     $item['type'] = $row[$this->varyByTypeAttribute];
                 }
-
-
                 $result[$row[$this->modelIdAttribute]] = $item;
             }
+
             if ($this->cacheEnabled) {
                 Yii::$app->cache->set(
                     $cacheKey,
@@ -180,6 +196,7 @@ class FullTreeDataAction extends Action
                     ])
                 );
             }
+
             Yii::endProfile('Build tree');
         }
 
@@ -199,10 +216,30 @@ class FullTreeDataAction extends Action
                 }
             }
         }
+
         Yii::endProfile('Get tree');
 
         Yii::$app->response->format = Response::FORMAT_RAW;
         header('Content-Type: application/json');
         return json_encode(array_values($result));
+    }
+
+    /**
+     * Method that search recursively all the parent for a register
+     * @param $parent ID of the parent register
+     * @param array $parentRows Array of all parents for a register
+     * @return array  Array of all parents for a register
+     */
+    protected function checkParents($parent, $parentRows = [])
+    {
+        $class = $this->className;
+        $parentRow = $class::find()->where(['id' => $parent])->asArray()->one();
+        if (!in_array($parentRow, $parentRows)) {
+            $parentRows[] = $parentRow;
+        }
+        if (!empty($parentRow['parent'])) {
+            $parentRows = $this->checkParents($parentRow['parent'], $parentRows);
+        }
+        return $parentRows;
     }
 }
