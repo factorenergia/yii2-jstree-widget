@@ -9,6 +9,7 @@ use yii\base\InvalidConfigException;
 use yii\caching\TagDependency;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
+use yii\helpers\Html;
 use yii\web\Response;
 
 /**
@@ -52,6 +53,12 @@ class FullTreeDataAction extends Action
     public $querySortOrder = 'sort_order';
 
     public $querySelectedAttribute = 'selected_id';
+
+    public $showModified = false;
+
+    public $excludeModifiedByType = [];
+
+    public $modelModifiedAttribute = 'date';
 
     /**
      * Additional related model
@@ -160,10 +167,17 @@ class FullTreeDataAction extends Action
             foreach ($rows as $row) {
 
                 $parent = ArrayHelper::getValue($row, $this->modelParentAttribute, 0);
+
+                $text = Html::tag('span', ArrayHelper::getValue($row, $this->modelLabelAttribute, 'item'));
+                if ($this->showModified && !in_array($row[$this->modelTypeAttribute], $this->excludeModifiedByType)) {
+                    $text .= Html::tag('span', ArrayHelper::getValue($row, $this->modelModifiedAttribute, 'item'),
+                        ['style' => 'float:right']);
+                }
+
                 $item = [
                     'id' => ArrayHelper::getValue($row, $this->modelIdAttribute, 0),
                     'parent' => ($parent) ? $parent : '#',
-                    'text' => ArrayHelper::getValue($row, $this->modelLabelAttribute, 'item'),
+                    'text' => $text,
                     'a_attr' => [
                         'data-id' => $row[$this->modelIdAttribute],
                         'data-parent_id' => $row[$this->modelParentAttribute]
